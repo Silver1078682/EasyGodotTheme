@@ -261,6 +261,11 @@ func _apply_theme():
 		set_stylebox(&"hovered_selected", &"Tree", _styleboxes["hover_pressed"])
 		set_stylebox(&"button_hover", &"Tree", _styleboxes["hover"])
 		set_stylebox(&"button_pressed", &"Tree", _styleboxes["pressed"])
+		set_color(&"font_color", &"Tree", font_color_normal)
+		set_color(&"font_hovered_color", &"Tree", font_color_hover)
+		set_color(&"font_selected_color", &"Tree", font_color_pressed)
+		set_color(&"font_hovered_selected_color", &"Tree", font_color_hover_pressed)
+		set_color(&"font_disabled_color", &"Tree", font_color_disabled)
 		if tree_fix_inner_item_margin:
 			set_constant(&"inner_item_margin_top", &"Tree", _styleboxes["normal"].content_margin_top)
 			set_constant(&"inner_item_margin_bottom", &"Tree", _styleboxes["normal"].content_margin_bottom)

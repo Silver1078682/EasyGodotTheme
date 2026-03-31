@@ -26,17 +26,17 @@ It greatly reduces the number of steps you need to take to create a theme, and m
    
 ### How to use
 1. Create an `EasyTheme`
-    1. right click your file system deck
-    2. Create New ... > Resource ... > `EasyTheme`
+	1. right click your file system deck
+	2. Create New ... > Resource ... > `EasyTheme`
 2. Select the `EasyTheme` you just created and modify the options in the inspector deck
 3. expand `Action` export group in your inspector, click `GenerateTheme` and see the changes.
 5. Hover on an option to see its description.
 6. (Optional)After you are done, click `Save as Common` button to export the theme to an ordinary theme file.
 
 > [!TIP]
-    Whenever you click `GenerateTheme`, the automated settings will be applied and it *may or may not* override theme settings you manually configured in theme editor.  
-    The best practice is to configure your theme as `EasyTheme` in inspector deck and avoid using the theme editor to fine-tune the theme. 
-    If you still want to fine-tune your theme, click `Save as Common` to export it as a common theme file and configure it in your theme editor. 
+	Whenever you click `GenerateTheme`, the automated settings will be applied and it *may or may not* override theme settings you manually configured in theme editor.  
+	The best practice is to configure your theme as `EasyTheme` in inspector deck and avoid using the theme editor to fine-tune the theme. 
+	If you still want to fine-tune your theme, click `Save as Common` to export it as a common theme file and configure it in your theme editor. 
 
 
 ### TODO
@@ -44,6 +44,6 @@ It greatly reduces the number of steps you need to take to create a theme, and m
 - [ ] better editing experience for even native Theme class.
 
 > [!WARNING]
-    This is a **WIP** project and there could be breaking changes *(very unlikely though)*.
+	This is a **WIP** project and there could be breaking changes *(very unlikely though)*.
 	You are welcome to report any issues you encounter.
 	

@@ -1,8 +1,9 @@
 [gd_resource type="Theme" script_class="EasyTheme" format=3 uid="uid://cb8idrfbeocx2"]
 
+[ext_resource type="FontFile" uid="uid://2pqf0l41q0vm" path="res://asset/fonts/monaspace_argon_medium.otf" id="1_0o2do"]
 [ext_resource type="Script" uid="uid://dyoli3ylfnx2r" path="res://addons/easy_godot_theme/easy_theme.gd" id="1_j3mfh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3mfh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o2do"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -21,7 +22,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o2do"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouutj"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -41,7 +42,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouutj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsfva"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -60,7 +61,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsfva"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2vbs"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -79,7 +80,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2vbs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkrbs"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -98,7 +99,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkrbs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxjgx"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -117,7 +118,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxjgx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3euq"]
 content_margin_left = 16.0
 content_margin_top = 10.0
 content_margin_right = 16.0
@@ -136,7 +137,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3euq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1m60n"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -155,7 +156,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1m60n"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p7md"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -174,7 +175,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p7md"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok0kn"]
 content_margin_left = 16.0
 content_margin_top = 4.0
 content_margin_right = 16.0
@@ -193,7 +194,7 @@ corner_detail = 20
 shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok0kn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4a67"]
 content_margin_left = 10.0
 content_margin_top = 16.0
 content_margin_right = 10.0
@@ -231,42 +232,44 @@ shadow_size = 4
 shadow_offset = Vector2(4, 4)
 
 [resource]
+default_font = ExtResource("1_0o2do")
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_disabled_color = Color(0.827451, 0.827451, 0.827451, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
-Button/styles/disabled = SubResource("StyleBoxFlat_j3mfh")
-Button/styles/focus = SubResource("StyleBoxFlat_0o2do")
-Button/styles/hover = SubResource("StyleBoxFlat_ouutj")
-Button/styles/hover_pressed = SubResource("StyleBoxFlat_xsfva")
-Button/styles/normal = SubResource("StyleBoxFlat_o2vbs")
-Button/styles/pressed = SubResource("StyleBoxFlat_vkrbs")
+Button/styles/disabled = SubResource("StyleBoxFlat_0o2do")
+Button/styles/focus = SubResource("StyleBoxFlat_ouutj")
+Button/styles/hover = SubResource("StyleBoxFlat_xsfva")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_o2vbs")
+Button/styles/normal = SubResource("StyleBoxFlat_vkrbs")
+Button/styles/pressed = SubResource("StyleBoxFlat_yxjgx")
 CheckBox/colors/checkbox_checked_color = Color(0.34757715, 0.4917438, 0.31668162, 1)
 CheckBox/colors/checkbox_unchecked_color = Color(0.18672618, 0.23826098, 0.24928209, 1)
 CheckButton/colors/button_checked_color = Color(0.34757715, 0.4917438, 0.31668162, 1)
 CheckButton/colors/button_unchecked_color = Color(0.18672618, 0.23826098, 0.24928209, 1)
-FoldableContainer/styles/focus = SubResource("StyleBoxFlat_0o2do")
-FoldableContainer/styles/panel = SubResource("StyleBoxFlat_j3mfh")
-FoldableContainer/styles/title_collapsed_hover_panel = SubResource("StyleBoxFlat_ouutj")
-FoldableContainer/styles/title_collapsed_panel = SubResource("StyleBoxFlat_o2vbs")
-FoldableContainer/styles/title_hover_panel = SubResource("StyleBoxFlat_ouutj")
-FoldableContainer/styles/title_panel = SubResource("StyleBoxFlat_o2vbs")
+FoldableContainer/styles/focus = SubResource("StyleBoxFlat_ouutj")
+FoldableContainer/styles/panel = SubResource("StyleBoxFlat_0o2do")
+FoldableContainer/styles/title_collapsed_hover_panel = SubResource("StyleBoxFlat_xsfva")
+FoldableContainer/styles/title_collapsed_panel = SubResource("StyleBoxFlat_vkrbs")
+FoldableContainer/styles/title_hover_panel = SubResource("StyleBoxFlat_xsfva")
+FoldableContainer/styles/title_panel = SubResource("StyleBoxFlat_vkrbs")
 HBoxContainer/constants/separation = 16
-HScrollBar/styles/grabber = SubResource("StyleBoxFlat_o2vbs")
-HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ouutj")
-HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_vkrbs")
-HScrollBar/styles/scroll = SubResource("StyleBoxFlat_yxjgx")
-HSlider/styles/grabber_area = SubResource("StyleBoxFlat_o2vbs")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ouutj")
-HSlider/styles/slider = SubResource("StyleBoxFlat_yxjgx")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_vkrbs")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_xsfva")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_yxjgx")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_t3euq")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vkrbs")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_xsfva")
+HSlider/styles/slider = SubResource("StyleBoxFlat_t3euq")
 Label/colors/font_color = Color(1, 1, 1, 1)
 LineEdit/colors/caret_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
 LineEdit/colors/selection_color = Color(0, 0, 0, 0.1)
 LineEdit/constants/caret_width = 2
-LineEdit/styles/focus = SubResource("StyleBoxFlat_0o2do")
-LineEdit/styles/normal = SubResource("StyleBoxFlat_o2vbs")
-LineEdit/styles/read_only = SubResource("StyleBoxFlat_j3mfh")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_ouutj")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_vkrbs")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_0o2do")
 LinkButton/colors/font_color = Color(1, 1, 1, 1)
 LinkButton/colors/font_disabled_color = Color(0.827451, 0.827451, 0.827451, 1)
 LinkButton/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -281,49 +284,55 @@ MenuBar/colors/font_disabled_color = Color(0.827451, 0.827451, 0.827451, 1)
 MenuBar/colors/font_hover_color = Color(1, 1, 1, 1)
 MenuBar/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 MenuBar/colors/font_pressed_color = Color(1, 1, 1, 1)
-MenuBar/styles/disabled = SubResource("StyleBoxFlat_j3mfh")
-MenuBar/styles/focus = SubResource("StyleBoxFlat_0o2do")
-MenuBar/styles/hover = SubResource("StyleBoxFlat_ouutj")
-MenuBar/styles/hover_pressed = SubResource("StyleBoxFlat_xsfva")
-MenuBar/styles/normal = SubResource("StyleBoxFlat_o2vbs")
-MenuBar/styles/pressed = SubResource("StyleBoxFlat_vkrbs")
-Panel/styles/panel = SubResource("StyleBoxFlat_t3euq")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_t3euq")
-PopupMenu/styles/hover = SubResource("StyleBoxFlat_1m60n")
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_5p7md")
-PopupPanel/styles/hover = SubResource("StyleBoxFlat_1m60n")
-PopupPanel/styles/panel = SubResource("StyleBoxFlat_5p7md")
-ProgressBar/styles/background = SubResource("StyleBoxFlat_j3mfh")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_o2vbs")
-TabContainer/styles/panel = SubResource("StyleBoxFlat_j3mfh")
-TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_j3mfh")
-TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_ouutj")
-TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_vkrbs")
-TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_o2vbs")
+MenuBar/styles/disabled = SubResource("StyleBoxFlat_0o2do")
+MenuBar/styles/focus = SubResource("StyleBoxFlat_ouutj")
+MenuBar/styles/hover = SubResource("StyleBoxFlat_xsfva")
+MenuBar/styles/hover_pressed = SubResource("StyleBoxFlat_o2vbs")
+MenuBar/styles/normal = SubResource("StyleBoxFlat_vkrbs")
+MenuBar/styles/pressed = SubResource("StyleBoxFlat_yxjgx")
+Panel/styles/panel = SubResource("StyleBoxFlat_1m60n")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_1m60n")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_5p7md")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_ok0kn")
+PopupPanel/styles/hover = SubResource("StyleBoxFlat_5p7md")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_ok0kn")
+ProgressBar/colors/font_color = Color(1, 1, 1, 1)
+ProgressBar/styles/background = SubResource("StyleBoxFlat_0o2do")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_vkrbs")
+TabContainer/colors/font_disabled_color = Color(0.827451, 0.827451, 0.827451, 1)
+TabContainer/colors/font_hovered_color = Color(1, 1, 1, 1)
+TabContainer/colors/font_selected_color = Color(1, 1, 1, 1)
+TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
+TabContainer/styles/panel = SubResource("StyleBoxFlat_0o2do")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_0o2do")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_xsfva")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_yxjgx")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_vkrbs")
 TextEdit/colors/caret_color = Color(1, 1, 1, 1)
+TextEdit/colors/font_color = Color(1, 1, 1, 1)
 TextEdit/colors/selection_color = Color(0, 0, 0, 0.1)
 TextEdit/constants/caret_width = 2
-TextEdit/styles/focus = SubResource("StyleBoxFlat_0o2do")
-TextEdit/styles/normal = SubResource("StyleBoxFlat_o2vbs")
-TextEdit/styles/read_only = SubResource("StyleBoxFlat_j3mfh")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_ouutj")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_vkrbs")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_0o2do")
 Tree/constants/inner_item_margin_bottom = 4
 Tree/constants/inner_item_margin_left = 16
 Tree/constants/inner_item_margin_right = 16
 Tree/constants/inner_item_margin_top = 4
-Tree/styles/button_hover = SubResource("StyleBoxFlat_ouutj")
-Tree/styles/button_pressed = SubResource("StyleBoxFlat_vkrbs")
-Tree/styles/hovered = SubResource("StyleBoxFlat_ouutj")
-Tree/styles/hovered_selected = SubResource("StyleBoxFlat_xsfva")
-Tree/styles/panel = SubResource("StyleBoxFlat_j3mfh")
-Tree/styles/selected = SubResource("StyleBoxFlat_vkrbs")
+Tree/styles/button_hover = SubResource("StyleBoxFlat_xsfva")
+Tree/styles/button_pressed = SubResource("StyleBoxFlat_yxjgx")
+Tree/styles/hovered = SubResource("StyleBoxFlat_xsfva")
+Tree/styles/hovered_selected = SubResource("StyleBoxFlat_o2vbs")
+Tree/styles/panel = SubResource("StyleBoxFlat_0o2do")
+Tree/styles/selected = SubResource("StyleBoxFlat_yxjgx")
 VBoxContainer/constants/separation = 16
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_o2vbs")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ouutj")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_vkrbs")
-VScrollBar/styles/scroll = SubResource("StyleBoxFlat_ok0kn")
-VSlider/styles/grabber_area = SubResource("StyleBoxFlat_o2vbs")
-VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ouutj")
-VSlider/styles/slider = SubResource("StyleBoxFlat_ok0kn")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_vkrbs")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_xsfva")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_yxjgx")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_m4a67")
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_vkrbs")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_xsfva")
+VSlider/styles/slider = SubResource("StyleBoxFlat_m4a67")
 script = ExtResource("1_j3mfh")
 spacing_width = 16
 color_normal = Color(0.3870582, 0.52841187, 0.57539225, 1)
