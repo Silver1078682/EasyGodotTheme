@@ -2,7 +2,7 @@
 Godot 4.6+ is recommended, though earlier versions should be supported too
 
 ### What is a Godot Theme
-[Theme]("https://docs.godotengine.org/en/4.6/tutorials/ui/gui_skinning.html), is a powerful concept that allows you for skinning your GUI in [Godot](https://docs.godotengine.org/)
+[Theme](https://docs.godotengine.org/en/4.6/tutorials/ui/gui_skinning.html), is a powerful concept that allows you for skinning your GUI in [Godot](https://docs.godotengine.org/)
 
 However, if you once tried creating a godot theme from scratch yourself, you will notice many annoying problems. 
 For instance, if you want to override the default color of a slider, you must apply the same configuration to both `VSlider` and `HSlider` in the theme editor 
