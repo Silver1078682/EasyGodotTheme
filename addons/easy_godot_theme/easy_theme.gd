@@ -33,7 +33,6 @@ const FONT_COLOR_FALLBACK := Color.GRAY
 @export var font_color_disabled := Color.GRAY
 @export var font_color_focus := Color.WHITE
 
-
 @export_group("Style Box Default", STYLE_BOX_PREFIX)
 const STYLE_BOX_PREFIX := "stylebox_"
 static var STYLE_BOX_FALLBACK := StyleBoxFlat.new()
@@ -103,26 +102,26 @@ const POPUP_OVERRIDE_PREFIX = "popup_override_"
 
 @export_group("Action")
 @export_tool_button("Generate Theme") var _generate_button := _generate
-## Clear the theme properties. This won't affect the EasyTheme stuffs 
+## Clear the theme properties. This won't affect the EasyTheme stuffs
 @export_tool_button("Clear Theme") var _clear_button := clear
 ## Save as an ordinary [Theme].
 @export_tool_button("Save as Common") var _save_as_theme_button := _save_as_theme
 
 const TYPES := [
-		"normal",
-		"hover",
-		"pressed",
-		"hover_pressed",
-		"disabled",
-		"focus",
-		"panel",
-	]
-
+	"normal",
+	"hover",
+	"pressed",
+	"hover_pressed",
+	"disabled",
+	"focus",
+	"panel",
+]
 
 #region Main Logic
 func _generate() -> void:
 	_generate_styleboxes()
 	_apply_theme()
+
 
 func _apply_theme():
 	# Sometimes the editor just freeze for a period of time when applying the theme (idk why)
@@ -147,8 +146,7 @@ func _apply_theme():
 		set_color(&"font_hover_pressed_color", &"LinkButton", font_color_hover_pressed)
 		set_color(&"font_disabled_color", &"LinkButton", font_color_disabled)
 		await donot_block
-		
-		
+
 		set_stylebox(&"normal", &"MenuBar", _button_override_styleboxes["normal"])
 		set_stylebox(&"hover", &"MenuBar", _button_override_styleboxes["hover"])
 		set_stylebox(&"pressed", &"MenuBar", _button_override_styleboxes["pressed"])
@@ -172,12 +170,11 @@ func _apply_theme():
 		set_stylebox(&"normal", &"LineEdit", _styleboxes["normal"])
 		set_stylebox(&"read_only", &"LineEdit", _styleboxes["disabled"])
 		set_stylebox(&"focus", &"LineEdit", _styleboxes["focus"])
-		
+
 		set_stylebox(&"normal", &"TextEdit", _styleboxes["normal"])
 		set_stylebox(&"read_only", &"TextEdit", _styleboxes["disabled"])
 		set_stylebox(&"focus", &"TextEdit", _styleboxes["focus"])
 		await donot_block
-		
 
 		set_constant(&"caret_width", &"LineEdit", text_field_caret_width)
 		set_constant(&"caret_width", &"TextEdit", text_field_caret_width)
@@ -226,8 +223,7 @@ func _apply_theme():
 		set_stylebox(&"fill", &"ProgressBar", _styleboxes["normal"])
 		set_stylebox(&"background", &"ProgressBar", _styleboxes["disabled"])
 		await donot_block
-		
-	
+
 	if tab_bar_should_generate:
 		set_stylebox(&"tab_unselected", &"TabContainer", _styleboxes["normal"])
 		set_stylebox(&"tab_hovered", &"TabContainer", _styleboxes["hover"])
@@ -243,7 +239,7 @@ func _apply_theme():
 		set_stylebox(&"panel", &"PopupPanel", _popup_override_styleboxes["normal"])
 		set_stylebox(&"hover", &"PopupPanel", _popup_override_styleboxes["hover"])
 		await donot_block
-	
+
 	if tree_should_generate:
 		set_stylebox(&"panel", &"Tree", _styleboxes["disabled"])
 		set_stylebox(&"hovered", &"Tree", _styleboxes["hover"])
@@ -257,7 +253,7 @@ func _apply_theme():
 			set_constant(&"inner_item_margin_left", &"Tree", _styleboxes["normal"].content_margin_left)
 			set_constant(&"inner_item_margin_right", &"Tree", _styleboxes["normal"].content_margin_right)
 		await donot_block
-	
+
 	if foldable_should_generate:
 		set_stylebox(&"title_panel", &"FoldableContainer", _styleboxes["normal"])
 		set_stylebox(&"title_collapsed_panel", &"FoldableContainer", _styleboxes["normal"])
@@ -279,15 +275,14 @@ func _apply_theme():
 			set_constant(&"h_separation", &"PopupMenu", spacing_width)
 		await donot_block
 
-	set_color(&"font_color",&"Label", font_color_normal)
+	set_color(&"font_color", &"Label", font_color_normal)
 	set_stylebox(&"panel", &"Panel", _styleboxes["panel"])
 	set_stylebox(&"panel", &"PanelContainer", _styleboxes["panel"])
-	
 
 #endregion
 
 #region stylebox
-var _styleboxes: Dictionary[String, StyleBox] = {}
+var _styleboxes: Dictionary[String, StyleBox] = { }
 
 
 func _generate_styleboxes() -> void:
@@ -307,22 +302,26 @@ func _generate_styleboxes() -> void:
 
 
 func _generate_a_stylebox(type: String, override_prefix := "") -> StyleBox:
-	var box : StyleBox
+	var box: StyleBox
 	#e.g. override_normal Fallback to override_normal >> override_default >> normal >> FALLBACK
 	box = _get_first_valid(
-		[get(override_prefix + STYLE_BOX_PREFIX + type),
-		get(override_prefix + STYLE_BOX_PREFIX + "default"),
-		get(STYLE_BOX_PREFIX + type),
-		get(STYLE_BOX_PREFIX + "default"),
-		STYLE_BOX_FALLBACK]
+		[
+			get(override_prefix + STYLE_BOX_PREFIX + type),
+			get(override_prefix + STYLE_BOX_PREFIX + "default"),
+			get(STYLE_BOX_PREFIX + type),
+			get(STYLE_BOX_PREFIX + "default"),
+			STYLE_BOX_FALLBACK,
+		],
 	).duplicate()
-	var color : Color
+	var color: Color
 	color = _get_first_valid(
-		[get(override_prefix + COLOR_PREFIX + type),
-		get(override_prefix + COLOR_PREFIX + "default"),
-		get(COLOR_PREFIX + type),
-		get(COLOR_PREFIX + "default"),
-		COLOR_FALLBACK]
+		[
+			get(override_prefix + COLOR_PREFIX + type),
+			get(override_prefix + COLOR_PREFIX + "default"),
+			get(COLOR_PREFIX + type),
+			get(COLOR_PREFIX + "default"),
+			COLOR_FALLBACK,
+		],
 	)
 
 	if box is StyleBoxFlat:
@@ -336,17 +335,16 @@ func _generate_a_stylebox(type: String, override_prefix := "") -> StyleBox:
 
 	elif box is StyleBoxLine:
 		box.color = color
-	
+
 	elif box is StyleBoxTexture:
 		if color_applied_as_modulate:
 			box.modulate_color = color
-	
-	
+
 	return box
 
 
-var _button_override_styleboxes: Dictionary[String, StyleBox] = {}
-var _popup_override_styleboxes: Dictionary[String, StyleBox] = {}
+var _button_override_styleboxes: Dictionary[String, StyleBox] = { }
+var _popup_override_styleboxes: Dictionary[String, StyleBox] = { }
 
 
 func _get_first_valid(args: Array):
@@ -363,8 +361,10 @@ func _validate_property(property: Dictionary) -> void:
 	if _is_editable(property.name, POPUP_OVERRIDE_PREFIX, popup_override_enabled):
 		property.usage |= PROPERTY_USAGE_READ_ONLY
 
+
 func _is_editable(name: String, prefix: String, flag: bool) -> bool:
 	return name.begins_with(prefix) and (name != prefix + "enabled") and not flag
+
 
 func _save_as_theme():
 	if resource_path.is_absolute_path():
