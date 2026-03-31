@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://cr3qk1uw4ojn5"]
+
+[ext_resource type="Script" uid="uid://14aot8u7gv65" path="res://demo/tree.gd" id="1_tqkwh"]
+
+[node name="ThemePreview" type="Control" unique_id=1404131662]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=814858208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=449530678]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=826834531]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=698776852]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=198201203]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Label"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1547391364]
+layout_mode = 2
+text = "Button"
+
+[node name="ToggleButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=698306150]
+layout_mode = 2
+toggle_mode = true
+text = "Toggle Button"
+
+[node name="DisabledButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1053899441]
+layout_mode = 2
+disabled = true
+text = "Disabled Button"
+
+[node name="FlatButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1847334019]
+layout_mode = 2
+disabled = true
+text = "Flat Button"
+flat = true
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=156555557]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CheckButton"
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=591149337]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CheckBox"
+
+[node name="LinkButton" type="LinkButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1834144202]
+layout_mode = 2
+text = "Link"
+uri = "https://godotengine.org"
+
+[node name="MenuButton" type="MenuButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=402783161]
+layout_mode = 2
+text = "MenuButton"
+item_count = 9
+popup/item_0/text = "Item"
+popup/item_0/id = 0
+popup/item_1/text = "Disabled Item"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/id = 4
+popup/item_2/separator = true
+popup/item_3/text = "Check Item"
+popup/item_3/checkable = 1
+popup/item_3/id = 2
+popup/item_4/text = "Checked Item"
+popup/item_4/checkable = 1
+popup/item_4/checked = true
+popup/item_4/id = 3
+popup/item_5/id = 5
+popup/item_5/separator = true
+popup/item_6/text = "Radio Item"
+popup/item_6/checkable = 2
+popup/item_6/id = 6
+popup/item_7/text = "Checked Radio Item"
+popup/item_7/checkable = 2
+popup/item_7/checked = true
+popup/item_7/id = 7
+popup/item_8/text = "Named Seperator"
+popup/item_8/id = 8
+popup/item_8/separator = true
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=117271734]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Has"
+popup/item_0/id = 0
+popup/item_1/text = "Many"
+popup/item_1/id = 1
+popup/item_2/text = "Options"
+popup/item_2/id = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=404576272]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=863362896]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuBar" type="MenuBar" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1880429379]
+layout_mode = 2
+
+[node name="Scene" type="PopupMenu" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MenuBar" unique_id=328607861]
+oversampling_override = 1.0
+item_count = 1
+item_0/text = "New Scene"
+item_0/id = 0
+
+[node name="Project" type="PopupMenu" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MenuBar" unique_id=1429612654]
+item_count = 1
+item_0/text = "Project Setting..."
+item_0/id = 0
+
+[node name="Debug" type="PopupMenu" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MenuBar" unique_id=259336632]
+
+[node name="Editor" type="PopupMenu" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/MenuBar" unique_id=1172937285]
+item_count = 3
+item_0/text = "This"
+item_0/id = 0
+item_1/text = "is"
+item_1/id = 1
+item_2/text = "cool"
+item_2/id = 2
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=68115428]
+layout_mode = 2
+text = "LineEdit"
+placeholder_text = "PlaceHolder"
+
+[node name="DisabledLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=376397526]
+layout_mode = 2
+placeholder_text = "Disabled LineEdit"
+editable = false
+
+[node name="TextEdit" type="TextEdit" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1908398274]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "TextEdit
+
+
+..."
+
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1286995810]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=223638251]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="VSlider" type="VSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=389034090]
+layout_mode = 2
+step = 20.0
+
+[node name="VScrollBar" type="VScrollBar" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=351877528]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+page = 10.0
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=2130255290]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=6908403]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=568466199]
+layout_mode = 2
+
+[node name="HSliderTick" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1563718216]
+layout_mode = 2
+step = 25.0
+tick_count = 5
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="HSliderDisabled" type="HSlider" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=483739264]
+layout_mode = 2
+editable = false
+
+[node name="HScrollBar" type="HScrollBar" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=635182259]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+page = 10.0
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1858342838]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=593440741]
+layout_mode = 2
+value = 75.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1100738194]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1969489913]
+layout_mode = 2
+current_tab = 0
+tab_0/title = "Tab 1"
+tab_1/title = "Tab 2"
+tab_2/title = "Tab 3"
+tab_2/disabled = true
+
+[node name="Tab1" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/TabContainer" unique_id=399641500]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "Tab 1"
+
+[node name="Tab2" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/TabContainer" unique_id=1874864950]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "Tab 2"
+
+[node name="Tab3" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/TabContainer" unique_id=397824408]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "Tab 3"
+
+[node name="Tree" type="Tree" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=750265159]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+hide_root = true
+script = ExtResource("1_tqkwh")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=731879816]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+split_offsets = PackedInt32Array(200)
+split_offset = 200
+
+[node name="ItemList" type="HFlowContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer" unique_id=2102620369]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer/ItemList" unique_id=1516788644]
+layout_mode = 2
+
+[node name="CheckBox2" type="CheckBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer/ItemList" unique_id=1481518444]
+layout_mode = 2
+
+[node name="CheckBox3" type="CheckBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer/ItemList" unique_id=829548975]
+layout_mode = 2
+
+[node name="CheckBox4" type="CheckBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer/ItemList" unique_id=157056482]
+layout_mode = 2
+
+[node name="CheckBox5" type="CheckBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer/ItemList" unique_id=1348818826]
+layout_mode = 2
+
+[node name="CheckBox6" type="CheckBox" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer/ItemList" unique_id=135263262]
+layout_mode = 2
+
+[node name="FoldableContainer" type="FoldableContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer3/HSplitContainer" unique_id=1141300018]
+layout_mode = 2
+folded = true
