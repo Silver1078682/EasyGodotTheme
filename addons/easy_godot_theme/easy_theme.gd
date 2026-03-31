@@ -75,8 +75,12 @@ const BUTTON_OVERRIDE_PREFIX := "button_override_"
 ## [HSlider]/[VSlider] [HScrollBar]/[VScrollBar] [ProgressBar]
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var slider_should_generate := true
 @export var slider_thickness := 5
-## Rotate the HSlider configuration and applied it to VSlider
+## Rotate the [HSlider] configuration and applied it to [VSlider].
+## This avoid a lot of problems.
 @export var slider_fix_vertical := true
+## [ScrollBar] may not reach the end if we override stylebox/scroll and set its [member content_margin].
+## This flag fix the issue
+@export var slider_fix_scroll := true
 
 @export_subgroup("TabBar", "tab_bar_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var tab_bar_should_generate := true
@@ -211,6 +215,7 @@ func _apply_theme():
 			v_stylebox.content_margin_right = h_stylebox.content_margin_bottom
 			v_stylebox.content_margin_top = h_stylebox.content_margin_left
 			v_stylebox.content_margin_bottom = h_stylebox.content_margin_right
+		
 
 		set_stylebox(&"grabber_area", &"HSlider", _styleboxes["normal"])
 		set_stylebox(&"grabber_area_highlight", &"HSlider", _styleboxes["hover"])
@@ -219,6 +224,16 @@ func _apply_theme():
 		set_stylebox(&"grabber_area_highlight", &"VSlider", _styleboxes["hover"])
 		set_stylebox(&"slider", &"VSlider", v_stylebox)
 		await do_not_block
+
+		if slider_fix_scroll:
+			if v_stylebox.content_margin_top or v_stylebox.content_margin_bottom:
+				v_stylebox = v_stylebox.duplicate()
+				v_stylebox.content_margin_top = 0
+				v_stylebox.content_margin_bottom = 0
+			if h_stylebox.content_margin_left or h_stylebox.content_margin_right:
+				h_stylebox = h_stylebox.duplicate()
+				h_stylebox.content_margin_left = 0
+				h_stylebox.content_margin_right = 0
 
 		set_stylebox(&"grabber", &"HScrollBar", _styleboxes["normal"])
 		set_stylebox(&"grabber_highlight", &"HScrollBar", _styleboxes["hover"])

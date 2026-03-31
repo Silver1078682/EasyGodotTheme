@@ -77,9 +77,9 @@ region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.4436567, 0.38268352, 0.4222313, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tds8"]
-content_margin_left = 4.0
+content_margin_left = 0.0
 content_margin_top = 4.0
-content_margin_right = 4.0
+content_margin_right = 0.0
 content_margin_bottom = 4.0
 texture = SubResource("NoiseTexture2D_shsvg")
 axis_stretch_horizontal = 1
@@ -94,7 +94,7 @@ content_margin_bottom = 4.0
 texture = SubResource("NoiseTexture2D_shsvg")
 axis_stretch_horizontal = 1
 region_rect = Rect2(0, 0, 512, 512)
-modulate_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+modulate_color = Color(0.363582, 0.3635821, 0.36358204, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6o5x"]
 content_margin_left = 4.0
@@ -104,13 +104,33 @@ content_margin_bottom = 4.0
 texture = SubResource("NoiseTexture2D_shsvg")
 axis_stretch_horizontal = 1
 region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlnl3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = SubResource("NoiseTexture2D_shsvg")
+axis_stretch_horizontal = 1
+region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0, 0, 0, 0.2509804)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlnl3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg74r"]
 bg_color = Color(0.30987772, 0.309878, 0.30987793, 0.87058824)
 border_color = Color(0.30987772, 0.309878, 0.30987793, 0.87058824)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7p02c"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4m0qn"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+texture = SubResource("NoiseTexture2D_shsvg")
+axis_stretch_horizontal = 1
+region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.363582, 0.3635821, 0.36358204, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ejscd"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -175,7 +195,7 @@ HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_l2nqt")
 HScrollBar/styles/scroll = SubResource("StyleBoxTexture_4tds8")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_2dlfq")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_shsvg")
-HSlider/styles/slider = SubResource("StyleBoxTexture_4tds8")
+HSlider/styles/slider = SubResource("StyleBoxTexture_mbl2c")
 Label/colors/font_color = Color(0.7266664, 0.6733752, 0.66181076, 1)
 LineEdit/colors/caret_color = Color(0.64705884, 0.6039216, 0.5921569, 1)
 LineEdit/colors/font_color = Color(0.7266664, 0.6733752, 0.66181076, 1)
@@ -204,12 +224,12 @@ MenuBar/styles/hover = SubResource("StyleBoxTexture_shsvg")
 MenuBar/styles/hover_pressed = SubResource("StyleBoxTexture_mgnxk")
 MenuBar/styles/normal = SubResource("StyleBoxTexture_2dlfq")
 MenuBar/styles/pressed = SubResource("StyleBoxTexture_l2nqt")
-Panel/styles/panel = SubResource("StyleBoxTexture_mbl2c")
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_mbl2c")
-PopupMenu/styles/hover = SubResource("StyleBoxTexture_b6o5x")
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_mlnl3")
-PopupPanel/styles/hover = SubResource("StyleBoxTexture_b6o5x")
-PopupPanel/styles/panel = SubResource("StyleBoxFlat_mlnl3")
+Panel/styles/panel = SubResource("StyleBoxTexture_b6o5x")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_b6o5x")
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_mlnl3")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_jg74r")
+PopupPanel/styles/hover = SubResource("StyleBoxTexture_mlnl3")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_jg74r")
 ProgressBar/colors/font_color = Color(0.7266664, 0.6733752, 0.66181076, 1)
 ProgressBar/styles/background = SubResource("StyleBoxTexture_4fmlv")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_2dlfq")
@@ -229,6 +249,11 @@ TextEdit/constants/caret_width = 2
 TextEdit/styles/focus = SubResource("StyleBoxFlat_je7qp")
 TextEdit/styles/normal = SubResource("StyleBoxTexture_2dlfq")
 TextEdit/styles/read_only = SubResource("StyleBoxTexture_4fmlv")
+Tree/colors/font_color = Color(0.7266664, 0.6733752, 0.66181076, 1)
+Tree/colors/font_disabled_color = Color(0.74509805, 0.74509805, 0.74509805, 1)
+Tree/colors/font_hovered_color = Color(0.9067675, 0.8844289, 0.8794637, 1)
+Tree/colors/font_hovered_selected_color = Color(0.90588236, 0.88235295, 0.8784314, 1)
+Tree/colors/font_selected_color = Color(0.7254902, 0.6745098, 0.6627451, 1)
 Tree/constants/inner_item_margin_bottom = 4
 Tree/constants/inner_item_margin_left = 4
 Tree/constants/inner_item_margin_right = 4
@@ -243,10 +268,10 @@ VBoxContainer/constants/separation = 16
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_2dlfq")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_shsvg")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_l2nqt")
-VScrollBar/styles/scroll = SubResource("StyleBoxTexture_7p02c")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_4m0qn")
 VSlider/styles/grabber_area = SubResource("StyleBoxTexture_2dlfq")
 VSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_shsvg")
-VSlider/styles/slider = SubResource("StyleBoxTexture_7p02c")
+VSlider/styles/slider = SubResource("StyleBoxTexture_ejscd")
 script = ExtResource("1_fubxe")
 spacing_width = 16
 color_normal = Color(0.73635507, 0.7363552, 0.73635507, 1)
