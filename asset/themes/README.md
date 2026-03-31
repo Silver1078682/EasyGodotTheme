@@ -1,1 +1,2 @@
-These folder contains some themes made by me, you can use it freely
+These folder contains some themes made by me.
+You can make 

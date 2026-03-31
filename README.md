@@ -35,7 +35,8 @@ It greatly reduces the number of steps you need to take to create a theme, and m
 
 > [!TIP]
     Whenever you click `GenerateTheme`, the automated settings will be applied and it *may or may not* override theme settings you manually configured in theme editor.  
-    The best practice is to configure your theme as `EasyTheme` in inspector deck first, then click `Save as Common` to export it. And finally fine-tune it as normal `Theme` in the theme editor.
+    The best practice is to configure your theme as `EasyTheme` in inspector deck and avoid using the theme editor to fine-tune the theme. 
+    If you still want to fine-tune your theme, click `Save as Common` to export it as a common theme file and configure it in your theme editor. 
 
 
 ### TODO

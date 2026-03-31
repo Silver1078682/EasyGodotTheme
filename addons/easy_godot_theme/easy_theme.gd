@@ -22,6 +22,7 @@ const COLOR_FALLBACK := Color.GRAY
 ## If we should also apply the corresponding color to the border of a StyleBoxFlat
 ## ignored if you are not using a StyleBoxFlat at all
 @export var color_applied_to_border := true
+@export var color_applied_as_modulate := true
 @export_group("Font Color", FONT_COLOR_PREFIX)
 const FONT_COLOR_PREFIX := "font_color_"
 const FONT_COLOR_FALLBACK := Color.GRAY
@@ -33,11 +34,11 @@ const FONT_COLOR_FALLBACK := Color.GRAY
 @export var font_color_focus := Color.WHITE
 
 
-@export_group("Style Box", STYLE_BOX_PREFIX)
+@export_group("Style Box Default", STYLE_BOX_PREFIX)
 const STYLE_BOX_PREFIX := "stylebox_"
 static var STYLE_BOX_FALLBACK := StyleBoxFlat.new()
 @export var stylebox_default: StyleBox
-@export_subgroup("Non Default", "stylebox_")
+@export_group("Style Box", "stylebox_")
 @export var stylebox_normal: StyleBox
 @export var stylebox_hover: StyleBox
 @export var stylebox_pressed: StyleBox
@@ -75,6 +76,8 @@ const BUTTON_OVERRIDE_PREFIX := "button_override_"
 ## [HSlider]/[VSlider] [HScrollBar]/[VScrollBar] [ProgressBar]
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var slider_should_generate := true
 @export var slider_thickness := 5
+## Rotate the HSlider configuration and applied it to VSlider
+@export var slider_fix_vertical := true
 
 @export_subgroup("TabBar", "tab_bar_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var tab_bar_should_generate := true
@@ -94,6 +97,7 @@ const POPUP_OVERRIDE_PREFIX = "popup_override_"
 
 @export_subgroup("Tree", "tree_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var tree_should_generate := true
+@export var tree_fix_inner_item_margin := true
 @export_subgroup("Foldable", "foldable_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var foldable_should_generate := true
 
@@ -133,10 +137,15 @@ func _apply_theme():
 		set_stylebox(&"focus", &"Button", _button_override_styleboxes["focus"])
 		set_stylebox(&"disabled", &"Button", _button_override_styleboxes["disabled"])
 		set_color(&"font_color", &"Button", font_color_normal)
-		set_color(&"font_hover_color", &"Button", font_color_normal)
+		set_color(&"font_hover_color", &"Button", font_color_hover)
 		set_color(&"font_pressed_color", &"Button", font_color_pressed)
 		set_color(&"font_hover_pressed_color", &"Button", font_color_hover_pressed)
 		set_color(&"font_disabled_color", &"Button", font_color_disabled)
+		set_color(&"font_color", &"LinkButton", font_color_normal)
+		set_color(&"font_hover_color", &"LinkButton", font_color_hover)
+		set_color(&"font_pressed_color", &"LinkButton", font_color_pressed)
+		set_color(&"font_hover_pressed_color", &"LinkButton", font_color_hover_pressed)
+		set_color(&"font_disabled_color", &"LinkButton", font_color_disabled)
 		await donot_block
 		
 		
@@ -146,6 +155,11 @@ func _apply_theme():
 		set_stylebox(&"hover_pressed", &"MenuBar", _button_override_styleboxes["hover_pressed"])
 		set_stylebox(&"focus", &"MenuBar", _button_override_styleboxes["focus"])
 		set_stylebox(&"disabled", &"MenuBar", _button_override_styleboxes["disabled"])
+		set_color(&"font_color", &"MenuBar", font_color_normal)
+		set_color(&"font_hover_color", &"MenuBar", font_color_hover)
+		set_color(&"font_pressed_color", &"MenuBar", font_color_pressed)
+		set_color(&"font_hover_pressed_color", &"MenuBar", font_color_hover_pressed)
+		set_color(&"font_disabled_color", &"MenuBar", font_color_disabled)
 		await donot_block
 
 		set_color(&"checkbox_checked_color", &"CheckBox", color_pressed)
@@ -177,10 +191,20 @@ func _apply_theme():
 		var h_stylebox := _styleboxes["disabled"].duplicate()
 		var v_stylebox := h_stylebox.duplicate()
 		if h_stylebox is StyleBoxFlat:
-			h_stylebox.border_width_top = slider_thickness
-			h_stylebox.border_width_bottom = slider_thickness
-			v_stylebox.border_width_left = slider_thickness
-			v_stylebox.border_width_right = slider_thickness
+			h_stylebox.content_margin_top = slider_thickness
+			h_stylebox.content_margin_bottom = slider_thickness
+		if slider_fix_vertical:
+			if v_stylebox is StyleBoxLine:
+				v_stylebox.vertical = not h_stylebox.vertical
+			if v_stylebox is StyleBoxFlat:
+				v_stylebox.border_width_left = h_stylebox.border_width_top
+				v_stylebox.border_width_right = h_stylebox.border_width_bottom
+				v_stylebox.border_width_top = h_stylebox.border_width_left
+				v_stylebox.border_width_bottom = h_stylebox.border_width_right
+			v_stylebox.content_margin_left = h_stylebox.content_margin_top
+			v_stylebox.content_margin_right = h_stylebox.content_margin_bottom
+			v_stylebox.content_margin_top = h_stylebox.content_margin_left
+			v_stylebox.content_margin_bottom = h_stylebox.content_margin_right
 
 		set_stylebox(&"grabber_area", &"HSlider", _styleboxes["normal"])
 		set_stylebox(&"grabber_area_highlight", &"HSlider", _styleboxes["hover"])
@@ -227,6 +251,11 @@ func _apply_theme():
 		set_stylebox(&"hovered_selected", &"Tree", _styleboxes["hover_pressed"])
 		set_stylebox(&"button_hover", &"Tree", _styleboxes["hover"])
 		set_stylebox(&"button_pressed", &"Tree", _styleboxes["pressed"])
+		if tree_fix_inner_item_margin:
+			set_constant(&"inner_item_margin_top", &"Tree", _styleboxes["normal"].content_margin_top)
+			set_constant(&"inner_item_margin_bottom", &"Tree", _styleboxes["normal"].content_margin_bottom)
+			set_constant(&"inner_item_margin_left", &"Tree", _styleboxes["normal"].content_margin_left)
+			set_constant(&"inner_item_margin_right", &"Tree", _styleboxes["normal"].content_margin_right)
 		await donot_block
 	
 	if foldable_should_generate:
@@ -307,6 +336,10 @@ func _generate_a_stylebox(type: String, override_prefix := "") -> StyleBox:
 
 	elif box is StyleBoxLine:
 		box.color = color
+	
+	elif box is StyleBoxTexture:
+		if color_applied_as_modulate:
+			box.modulate_color = color
 	
 	
 	return box
