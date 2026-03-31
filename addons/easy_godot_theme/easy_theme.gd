@@ -126,7 +126,7 @@ func _generate() -> void:
 func _apply_theme():
 	# Sometimes the editor just freeze for a period of time when applying the theme (idk why)
 	# This rarely happens, but in case we will pause the progress once in a while
-	var donot_block := EditorInterface.get_base_control().get_tree().process_frame
+	var do_not_block := EditorInterface.get_base_control().get_tree().process_frame
 
 	if button_should_generate:
 		set_stylebox(&"normal", &"Button", _button_override_styleboxes["normal"])
@@ -145,7 +145,7 @@ func _apply_theme():
 		set_color(&"font_pressed_color", &"LinkButton", font_color_pressed)
 		set_color(&"font_hover_pressed_color", &"LinkButton", font_color_hover_pressed)
 		set_color(&"font_disabled_color", &"LinkButton", font_color_disabled)
-		await donot_block
+		await do_not_block
 
 		set_stylebox(&"normal", &"MenuBar", _button_override_styleboxes["normal"])
 		set_stylebox(&"hover", &"MenuBar", _button_override_styleboxes["hover"])
@@ -158,13 +158,13 @@ func _apply_theme():
 		set_color(&"font_pressed_color", &"MenuBar", font_color_pressed)
 		set_color(&"font_hover_pressed_color", &"MenuBar", font_color_hover_pressed)
 		set_color(&"font_disabled_color", &"MenuBar", font_color_disabled)
-		await donot_block
+		await do_not_block
 
 		set_color(&"checkbox_checked_color", &"CheckBox", color_pressed)
 		set_color(&"checkbox_unchecked_color", &"CheckBox", color_disabled)
 		set_color(&"button_checked_color", &"CheckButton", color_pressed)
 		set_color(&"button_unchecked_color", &"CheckButton", color_disabled)
-		await donot_block
+		await do_not_block
 
 	if text_field_should_generate:
 		set_stylebox(&"normal", &"LineEdit", _styleboxes["normal"])
@@ -174,7 +174,7 @@ func _apply_theme():
 		set_stylebox(&"normal", &"TextEdit", _styleboxes["normal"])
 		set_stylebox(&"read_only", &"TextEdit", _styleboxes["disabled"])
 		set_stylebox(&"focus", &"TextEdit", _styleboxes["focus"])
-		await donot_block
+		await do_not_block
 
 		set_constant(&"caret_width", &"LineEdit", text_field_caret_width)
 		set_constant(&"caret_width", &"TextEdit", text_field_caret_width)
@@ -182,7 +182,16 @@ func _apply_theme():
 		set_color(&"caret_color", &"TextEdit", text_field_caret_color)
 		set_color(&"selection_color", &"LineEdit", text_field_selection_color)
 		set_color(&"selection_color", &"TextEdit", text_field_selection_color)
-		await donot_block
+		
+		set_color(&"caret_color", &"LineEdit", text_field_caret_color)
+		set_color(&"caret_color", &"TextEdit", text_field_caret_color)
+		set_color(&"selection_color", &"LineEdit", text_field_selection_color)
+		set_color(&"selection_color", &"TextEdit", text_field_selection_color)
+		
+		set_color(&"font_color", &"LineEdit", font_color_normal)
+		set_color(&"font_color", &"TextEdit", font_color_normal)
+		await do_not_block
+		
 
 	if slider_should_generate:
 		var h_stylebox := _styleboxes["disabled"].duplicate()
@@ -209,7 +218,7 @@ func _apply_theme():
 		set_stylebox(&"grabber_area", &"VSlider", _styleboxes["normal"])
 		set_stylebox(&"grabber_area_highlight", &"VSlider", _styleboxes["hover"])
 		set_stylebox(&"slider", &"VSlider", v_stylebox)
-		await donot_block
+		await do_not_block
 
 		set_stylebox(&"grabber", &"HScrollBar", _styleboxes["normal"])
 		set_stylebox(&"grabber_highlight", &"HScrollBar", _styleboxes["hover"])
@@ -222,7 +231,8 @@ func _apply_theme():
 
 		set_stylebox(&"fill", &"ProgressBar", _styleboxes["normal"])
 		set_stylebox(&"background", &"ProgressBar", _styleboxes["disabled"])
-		await donot_block
+		set_color(&"font_color", &"ProgressBar", font_color_normal)
+		await do_not_block
 
 	if tab_bar_should_generate:
 		set_stylebox(&"tab_unselected", &"TabContainer", _styleboxes["normal"])
@@ -231,14 +241,18 @@ func _apply_theme():
 		set_stylebox(&"tab_disabled", &"TabContainer", _styleboxes["disabled"])
 		set_stylebox(&"tab_hovered", &"TabContainer", _styleboxes["hover"])
 		set_stylebox(&"panel", &"TabContainer", _styleboxes["disabled"])
-		await donot_block
+		set_color(&"font_unselected_color", &"TabContainer", font_color_normal)
+		set_color(&"font_hovered_color", &"TabContainer", font_color_hover)
+		set_color(&"font_selected_color", &"TabContainer", font_color_pressed)
+		set_color(&"font_disabled_color", &"TabContainer", font_color_disabled)
+		await do_not_block
 
 	if popup_should_generate:
 		set_stylebox(&"panel", &"PopupMenu", _popup_override_styleboxes["normal"])
 		set_stylebox(&"hover", &"PopupMenu", _popup_override_styleboxes["hover"])
 		set_stylebox(&"panel", &"PopupPanel", _popup_override_styleboxes["normal"])
 		set_stylebox(&"hover", &"PopupPanel", _popup_override_styleboxes["hover"])
-		await donot_block
+		await do_not_block
 
 	if tree_should_generate:
 		set_stylebox(&"panel", &"Tree", _styleboxes["disabled"])
@@ -252,7 +266,7 @@ func _apply_theme():
 			set_constant(&"inner_item_margin_bottom", &"Tree", _styleboxes["normal"].content_margin_bottom)
 			set_constant(&"inner_item_margin_left", &"Tree", _styleboxes["normal"].content_margin_left)
 			set_constant(&"inner_item_margin_right", &"Tree", _styleboxes["normal"].content_margin_right)
-		await donot_block
+		await do_not_block
 
 	if foldable_should_generate:
 		set_stylebox(&"title_panel", &"FoldableContainer", _styleboxes["normal"])
@@ -261,7 +275,7 @@ func _apply_theme():
 		set_stylebox(&"title_collapsed_hover_panel", &"FoldableContainer", _styleboxes["hover"])
 		set_stylebox(&"panel", &"FoldableContainer", _styleboxes["disabled"])
 		set_stylebox(&"focus", &"FoldableContainer", _styleboxes["focus"])
-		await donot_block
+		await do_not_block
 
 	if spacing_width != -1:
 		set_constant(&"separation", &"VBoxContainer", spacing_width)
@@ -273,7 +287,7 @@ func _apply_theme():
 		if spacing_affect_popup:
 			set_constant(&"v_separation", &"PopupMenu", spacing_width)
 			set_constant(&"h_separation", &"PopupMenu", spacing_width)
-		await donot_block
+		await do_not_block
 
 	set_color(&"font_color", &"Label", font_color_normal)
 	set_stylebox(&"panel", &"Panel", _styleboxes["panel"])
