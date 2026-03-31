@@ -1,5 +1,6 @@
 [gd_resource type="Theme" script_class="EasyTheme" format=3 uid="uid://ojhsca2ij76y"]
 
+[ext_resource type="FontFile" uid="uid://dgdxqbjer77n2" path="res://asset/fonts/monaspace_argon_bold_italic.otf" id="1_4fmlv"]
 [ext_resource type="Script" uid="uid://dyoli3ylfnx2r" path="res://addons/easy_godot_theme/easy_theme.gd" id="1_fubxe"]
 
 [sub_resource type="Gradient" id="Gradient_4fmlv"]
@@ -105,9 +106,6 @@ axis_stretch_horizontal = 1
 region_rect = Rect2(0, 0, 512, 512)
 modulate_color = Color(0.363582, 0.3635821, 0.36358204, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_b6o5x"]
-font_names = PackedStringArray("Latin Modern Mono Slanted")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6o5x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlnl3"]
@@ -135,7 +133,7 @@ expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
 [resource]
-default_font = SubResource("SystemFont_b6o5x")
+default_font = ExtResource("1_4fmlv")
 default_font_size = 18
 Button/colors/font_color = Color(0.7266664, 0.6733752, 0.66181076, 1)
 Button/colors/font_disabled_color = Color(0.74509805, 0.74509805, 0.74509805, 1)
