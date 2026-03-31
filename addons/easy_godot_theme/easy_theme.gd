@@ -12,17 +12,26 @@ extends Theme
 @export_group("Color", COLOR_PREFIX)
 const COLOR_PREFIX := "color_"
 const COLOR_FALLBACK := Color.GRAY
+## The color applied to the default state of Controls. [br]
+## If the Control is using [StyleBoxFlat] or [StyleBoxLine], it will set its [code]color[/code].
+## If the Control is using [StyleBoxTexture], it will set its [code]modulate[/code].
 @export var color_normal := Color.WEB_GRAY
+## The color applied to Controls when they are hovered. See also [member color_normal]
 @export var color_hover := Color("505050ff")
+## The color applied to Controls when they are pressed/selected. See also [member color_normal]
 @export var color_pressed := Color("505050ff")
+## The color applied to Controls when they are both pressed/selected and hovered. See also [member color_normal]
 @export var color_hover_pressed := Color("505050ff")
+## The color applied to Controls when they are disabled. See also [member color_normal]
 @export var color_disabled := Color("3a3a3aff")
+## The color for focused hint, by default the color will only applied to the border of a [StyleBoxFlat]
 @export var color_focus := Color("#6495ed")
 @export var color_panel := Color("#272727")
 ## If we should also apply the corresponding color to the border of a StyleBoxFlat
 ## ignored if you are not using a StyleBoxFlat at all
 @export var color_applied_to_border := true
 @export var color_applied_as_modulate := true
+
 @export_group("Font Color", FONT_COLOR_PREFIX)
 const FONT_COLOR_PREFIX := "font_color_"
 const FONT_COLOR_FALLBACK := Color.GRAY
@@ -37,6 +46,7 @@ const FONT_COLOR_FALLBACK := Color.GRAY
 const STYLE_BOX_PREFIX := "stylebox_"
 static var STYLE_BOX_FALLBACK := StyleBoxFlat.new()
 @export var stylebox_default: StyleBox
+
 @export_group("Style Box", "stylebox_")
 @export var stylebox_normal: StyleBox
 @export var stylebox_hover: StyleBox
@@ -100,9 +110,13 @@ const POPUP_OVERRIDE_PREFIX = "popup_override_"
 
 @export_subgroup("Tree", "tree_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var tree_should_generate := true
+## The [Tree] does not respect the [member StyleBox.content_margin_*] of a [StyleBox]
+## This flag force it to follow the rule by overriding [inner_item_margin_*]
 @export var tree_fix_inner_item_margin := true
+
 @export_subgroup("Foldable", "foldable_")
 @export_custom(PROPERTY_HINT_GROUP_ENABLE, "") var foldable_should_generate := true
+@export var foldable_fix_inner_item_margin := true
 
 @export_group("Action")
 @export_tool_button("Generate Theme") var _generate_button := _generate
@@ -186,16 +200,15 @@ func _apply_theme():
 		set_color(&"caret_color", &"TextEdit", text_field_caret_color)
 		set_color(&"selection_color", &"LineEdit", text_field_selection_color)
 		set_color(&"selection_color", &"TextEdit", text_field_selection_color)
-		
+
 		set_color(&"caret_color", &"LineEdit", text_field_caret_color)
 		set_color(&"caret_color", &"TextEdit", text_field_caret_color)
 		set_color(&"selection_color", &"LineEdit", text_field_selection_color)
 		set_color(&"selection_color", &"TextEdit", text_field_selection_color)
-		
+
 		set_color(&"font_color", &"LineEdit", font_color_normal)
 		set_color(&"font_color", &"TextEdit", font_color_normal)
 		await do_not_block
-		
 
 	if slider_should_generate:
 		var h_stylebox := _styleboxes["disabled"].duplicate()
@@ -215,14 +228,16 @@ func _apply_theme():
 			v_stylebox.content_margin_right = h_stylebox.content_margin_bottom
 			v_stylebox.content_margin_top = h_stylebox.content_margin_left
 			v_stylebox.content_margin_bottom = h_stylebox.content_margin_right
-		
 
 		set_stylebox(&"grabber_area", &"HSlider", _styleboxes["normal"])
 		set_stylebox(&"grabber_area_highlight", &"HSlider", _styleboxes["hover"])
 		set_stylebox(&"slider", &"HSlider", h_stylebox)
+		set_stylebox(&"focus", &"HSlider", _styleboxes["focus"])
+
 		set_stylebox(&"grabber_area", &"VSlider", _styleboxes["normal"])
 		set_stylebox(&"grabber_area_highlight", &"VSlider", _styleboxes["hover"])
 		set_stylebox(&"slider", &"VSlider", v_stylebox)
+		set_stylebox(&"focus", &"VSlider", _styleboxes["focus"])
 		await do_not_block
 
 		if slider_fix_scroll:
@@ -253,8 +268,9 @@ func _apply_theme():
 		set_stylebox(&"tab_unselected", &"TabContainer", _styleboxes["normal"])
 		set_stylebox(&"tab_hovered", &"TabContainer", _styleboxes["hover"])
 		set_stylebox(&"tab_selected", &"TabContainer", _styleboxes["pressed"])
+		set_stylebox(&"tab_focus", &"TabContainer", _styleboxes["focus"])
 		set_stylebox(&"tab_disabled", &"TabContainer", _styleboxes["disabled"])
-		set_stylebox(&"tab_hovered", &"TabContainer", _styleboxes["hover"])
+
 		set_stylebox(&"panel", &"TabContainer", _styleboxes["disabled"])
 		set_color(&"font_unselected_color", &"TabContainer", font_color_normal)
 		set_color(&"font_hovered_color", &"TabContainer", font_color_hover)
@@ -276,6 +292,9 @@ func _apply_theme():
 		set_stylebox(&"hovered_selected", &"Tree", _styleboxes["hover_pressed"])
 		set_stylebox(&"button_hover", &"Tree", _styleboxes["hover"])
 		set_stylebox(&"button_pressed", &"Tree", _styleboxes["pressed"])
+		set_stylebox(&"selected_focus", &"Tree", _styleboxes["focus"])
+		set_stylebox(&"hovered_selected_focus", &"Tree", _styleboxes["focus"])
+
 		set_color(&"font_color", &"Tree", font_color_normal)
 		set_color(&"font_hovered_color", &"Tree", font_color_hover)
 		set_color(&"font_selected_color", &"Tree", font_color_pressed)
@@ -286,6 +305,7 @@ func _apply_theme():
 			set_constant(&"inner_item_margin_bottom", &"Tree", _styleboxes["normal"].content_margin_bottom)
 			set_constant(&"inner_item_margin_left", &"Tree", _styleboxes["normal"].content_margin_left)
 			set_constant(&"inner_item_margin_right", &"Tree", _styleboxes["normal"].content_margin_right)
+		set_stylebox(&"focus", &"Tree", _styleboxes["focus"])
 		await do_not_block
 
 	if foldable_should_generate:

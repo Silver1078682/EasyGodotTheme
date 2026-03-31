@@ -393,3 +393,4 @@ slider_thickness = 10
 popup_override_enabled = true
 popup_override_color_normal = Color(0.15095362, 0.17939484, 0.188873, 1)
 popup_override_color_hover = Color(0.34716275, 0.43463817, 0.4471172, 1)
+foldable_fix_inner_item_margin = null

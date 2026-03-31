@@ -73,6 +73,20 @@ border_color = Color(0.42865404, 0.25775892, 0.28253534, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbkkw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.2858131, 0.33878738, 0.40706804, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.28627452, 0.3372549, 0.40784314, 1)
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slrk1"]
 bg_color = Color(0.49571759, 0.686456, 0.6774794, 1)
 border_width_left = 4
@@ -189,7 +203,7 @@ CheckBox/colors/checkbox_unchecked_color = Color(0.2858131, 0.33878738, 0.407068
 CheckButton/colors/button_checked_color = Color(0.42865404, 0.25775892, 0.28253534, 1)
 CheckButton/colors/button_unchecked_color = Color(0.2858131, 0.33878738, 0.40706804, 1)
 FoldableContainer/styles/focus = SubResource("StyleBoxFlat_ebsa3")
-FoldableContainer/styles/panel = SubResource("StyleBoxFlat_dya7n")
+FoldableContainer/styles/panel = SubResource("StyleBoxFlat_xbkkw")
 FoldableContainer/styles/title_collapsed_hover_panel = SubResource("StyleBoxFlat_5wv37")
 FoldableContainer/styles/title_collapsed_panel = SubResource("StyleBoxFlat_lnosb")
 FoldableContainer/styles/title_hover_panel = SubResource("StyleBoxFlat_slrk1")
